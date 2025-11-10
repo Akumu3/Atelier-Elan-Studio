@@ -1,0 +1,381 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Atelier Élan Studio — Where Modern Elegance Meets Creative Luxury</title>
+  <meta name="description" content="Atelier Élan Studio crafts timeless brand identities, UX/UI, and digital experiences. Based in Nairobi, Kenya — led by Hellen Akumu. Book a discovery call." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>  <style>
+    /* Minimal local styles to complement Tailwind tokens used inline */
+    :root{--cream:#FFF9F4;--black:#000000;--champagne:#D4AF37;--muted:#F4F2F0;--charcoal:#1C1C1C}
+    .font-serif{font-family:'Playfair Display',serif}
+    .font-sans{font-family:'Poppins',sans-serif}
+    .rounded-12{border-radius:12px}
+    .shadow-soft{box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+    .btn-primary{display:inline-block;padding:12px 22px;border-radius:8px;text-transform:uppercase;letter-spacing:.05em}
+    .btn-secondary{display:inline-block;padding:10px 20px;border-radius:8px;text-transform:uppercase;letter-spacing:.05em;border:1.5px solid var(--champagne)}
+    .page-content{display:none}
+    .active{display:block}
+  </style>  <!-- EmailJS library (used for contact form submissions) -->  <script src="https://cdn.emailjs.com/sdk/3.6.2/email.min.js"></script>  <!-- NOTE: Deployment & EmailJS Setup Instructions
+    1) To deploy on GitHub Pages: create a new repository, add this file as index.html (root), push, then enable Pages from the repo settings (branch: main / root).
+    2) EmailJS: Sign up at https://www.emailjs.com -> Add an email service (e.g., Gmail via OAuth or SMTP) -> Create a template named 'template_contact' (or whatever you pick).
+       - Required template variables used below: from_name, reply_to, project_type, budget, message, to_email (optional)
+       - Replace SERVICE_ID, TEMPLATE_ID, and USER_ID placeholders in the script near the bottom of this file.
+    3) PayPal: For card & PayPal checkout on a static page you can use a PayPal checkout script (requires a client-id). For simplicity this build includes a configurable PayPal.Me link and instructions to replace with Checkout integration.
+  --></head>
+<body class="bg-cream text-black font-sans antialiased leading-relaxed">  <!-- Header -->  <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-[#F4F2F0]/50">
+    <nav class="container mx-auto px-6 py-5 max-w-6xl flex items-center justify-between">
+      <a href="#/" class="font-serif text-xl font-semibold tracking-wider text-[#1C1C1C]">Atelier Élan Studio</a>
+      <ul class="hidden md:flex space-x-8 text-sm font-light uppercase tracking-widest">
+        <li><a class="nav-link" data-path="/">Home</a></li>
+        <li><a class="nav-link" data-path="about">About</a></li>
+        <li><a class="nav-link" data-path="services">Services</a></li>
+        <li><a class="nav-link" data-path="portfolio">Portfolio</a></li>
+        <li><a class="nav-link" data-path="contact">Contact</a></li>
+      </ul>
+      <div class="flex items-center space-x-4">
+        <a href="#/contact" class="hidden md:inline-block btn-secondary text-[#1C1C1C]">REQUEST A QUOTE</a>
+        <button id="mobileMenuBtn" class="md:hidden p-2">☰</button>
+      </div>
+    </nav>
+  </header>  <!-- Mobile menu -->  <div id="mobileMenu" class="hidden md:hidden bg-cream p-6">
+    <a class="block py-2" data-path="/">Home</a>
+    <a class="block py-2" data-path="about">About</a>
+    <a class="block py-2" data-path="services">Services</a>
+    <a class="block py-2" data-path="portfolio">Portfolio</a>
+    <a class="block py-2" data-path="contact">Contact</a>
+  </div>  <main class="min-h-[70vh] container mx-auto max-w-6xl px-6 py-12"><!-- HOME -->
+<section id="page-home" class="page-content active">
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h1 class="font-serif text-5xl md:text-6xl font-light">Atelier Élan Studio</h1>
+      <p class="mt-6 text-xl text-[#1C1C1C]/80">Where creativity meets refinement. We craft brand identities, digital experiences, and content that feel as good as they look.</p>
+      <div class="mt-8">
+        <a href="#/portfolio" class="btn-primary bg-black text-cream">EXPLORE OUR WORK</a>
+        <a href="#/services" class="btn-secondary ml-4">SERVICES</a>
+      </div>
+    </div>
+    <div class="h-80 bg-[#F4F2F0] rounded-12 shadow-soft overflow-hidden">
+      <img src="https://placehold.co/1200x800/F4F2F0/1C1C1C?text=Atelier+Hero" alt="Editorial hero" class="w-full h-full object-cover">
+    </div>
+  </div>
+
+  <div class="mt-16 border-t border-[#D4AF37]/30 pt-12 grid md:grid-cols-3 gap-8">
+    <h3 class="font-serif text-2xl">Our Philosophy</h3>
+    <div class="md:col-span-2">
+      <p class="text-lg">Atelier Élan Studio is a multidisciplinary creative house led by Hellen Akumu. We blend design precision with artistic soul to craft brands that resonate on and offline.</p>
+      <div class="mt-8 grid sm:grid-cols-3 gap-6">
+        <div><p class="font-semibold">Brand Identity</p><p class="text-sm">Logos, palettes, tone.</p></div>
+        <div><p class="font-semibold">Web & UX/UI</p><p class="text-sm">Sleek, intuitive experiences.</p></div>
+        <div><p class="font-semibold">Social Content</p><p class="text-sm">Story-led visuals.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="page-about" class="page-content">
+  <h1 class="font-serif text-4xl mb-6">Elegance. Emotion. Élan.</h1>
+  <div class="grid md:grid-cols-2 gap-12">
+    <div>
+      <p class="text-lg">Founded by Hellen Akumu, Atelier Élan Studio is a creative sanctuary for brands that believe design should feel as good as it looks.</p>
+      <ul class="mt-6 space-y-3">
+        <li><strong>Creativity:</strong> Beyond trends.</li>
+        <li><strong>Authenticity:</strong> Design that reflects your truth.</li>
+        <li><strong>Refinement:</strong> Simplicity elevated.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="bg-[#F4F2F0] p-6 rounded-12 shadow-soft">
+        <h3 class="font-serif text-2xl">Hellen Akumu</h3>
+        <p class="text-xs uppercase tracking-widest text-[#D4AF37] mt-2">Founder & Creative Director</p>
+        <p class="mt-4">Multidisciplinary designer specialized in branding and UX/UI. Editorial aesthetics + strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="page-services" class="page-content">
+  <h1 class="font-serif text-3xl mb-6">Our Bespoke Services</h1>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Example service card includes Book Now button -->
+    <div class="bg-white p-6 rounded-12 shadow-soft border">
+      <h3 class="font-serif text-xl">Branding & Identity</h3>
+      <p class="text-sm mt-2">Logos, guidelines, visual systems.</p>
+      <div class="mt-4">
+        <a href="#/payments?item=Branding" class="btn-primary bg-black text-cream">BOOK NOW</a>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-12 shadow-soft border">
+      <h3 class="font-serif text-xl">Web & UX/UI</h3>
+      <p class="text-sm mt-2">Design and prototype for web & apps.</p>
+      <div class="mt-4">
+        <a href="#/payments?item=Web+%26+UX%2FUI" class="btn-primary bg-black text-cream">BOOK NOW</a>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-12 shadow-soft border">
+      <h3 class="font-serif text-xl">Social Media & Content</h3>
+      <p class="text-sm mt-2">Content packages and scheduling.</p>
+      <div class="mt-4">
+        <a href="#/payments?item=Social+Content" class="btn-primary bg-black text-cream">BOOK NOW</a>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-12 shadow-soft border">
+      <h3 class="font-serif text-xl">Product Mockups & Packaging</h3>
+      <p class="text-sm mt-2">Luxury-inspired mockups & dielines.</p>
+      <div class="mt-4">
+        <a href="#/payments?item=Packaging" class="btn-primary bg-black text-cream">BOOK NOW</a>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-12 shadow-soft border">
+      <h3 class="font-serif text-xl">Digital Marketing Strategy</h3>
+      <p class="text-sm mt-2">Campaign planning & growth strategy.</p>
+      <div class="mt-4">
+        <a href="#/payments?item=Digital+Strategy" class="btn-primary bg-black text-cream">BOOK NOW</a>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-12 shadow-soft border">
+      <h3 class="font-serif text-xl">UX Audits & Consults</h3>
+      <p class="text-sm mt-2">Heuristic audits & actionable recommendations.</p>
+      <div class="mt-4">
+        <a href="#/payments?item=UX+Audit" class="btn-primary bg-black text-cream">BOOK NOW</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="page-portfolio" class="page-content">
+  <h1 class="font-serif text-3xl mb-6">Our Creative Universe</h1>
+  <div id="portfolioGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="page-contact" class="page-content">
+  <h1 class="font-serif text-3xl mb-6">Let's create something beautiful together</h1>
+
+  <div class="bg-white p-6 rounded-12 shadow-soft">
+    <form id="contactForm" class="space-y-4">
+      <div>
+        <label class="text-sm font-semibold">Name *</label>
+        <input name="from_name" required class="w-full p-3 border rounded" placeholder="Your full name" />
+      </div>
+      <div>
+        <label class="text-sm font-semibold">Email *</label>
+        <input name="reply_to" type="email" required class="w-full p-3 border rounded" placeholder="hello@example.com" />
+      </div>
+      <div>
+        <label class="text-sm font-semibold">Project type *</label>
+        <select name="project_type" required class="w-full p-3 border rounded">
+          <option value="Branding">Branding & Identity</option>
+          <option value="Web-UI">Web & UX/UI</option>
+          <option value="Social">Social Media Content</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-sm font-semibold">Budget (optional)</label>
+        <input name="budget" class="w-full p-3 border rounded" placeholder="$5,000 - $10,000" />
+      </div>
+      <div>
+        <label class="text-sm font-semibold">Message *</label>
+        <textarea name="message" rows="5" required class="w-full p-3 border rounded" placeholder="Tell us about your vision..."></textarea>
+      </div>
+
+      <!-- Honeypot -->
+      <input type="text" name="hp_field" id="hp_field" style="display:none!important;position:absolute;left:-9999px;" />
+
+      <button class="btn-primary bg-black text-cream w-full" type="submit">SEND MESSAGE</button>
+      <div id="formStatus" class="mt-4 hidden p-3 text-sm rounded"></div>
+    </form>
+
+    <div class="mt-8 text-center">
+      <p class="text-xs uppercase tracking-widest">Secure Payment Methods</p>
+      <div class="flex justify-center items-center gap-6 mt-3">
+        <span class="text-sm font-semibold">PayPal</span>
+        <span class="text-sm font-semibold">M-Pesa</span>
+        <span class="text-sm font-semibold">Visa</span>
+      </div>
+      <p class="text-xs italic mt-2">We accept PayPal, M-Pesa, and Visa. Payment links and instructions available on the payment page after you click "Book Now" for a service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS (single-page flow) -->
+<section id="page-payments" class="page-content">
+  <h1 class="font-serif text-3xl mb-6">Payments & Bookings</h1>
+
+  <div class="bg-white p-6 rounded-12 shadow-soft">
+    <div id="paymentSummary" class="mb-6">
+      <p class="text-sm">Selected service: <span id="selectedService" class="font-semibold">—</span></p>
+      <p class="text-sm">Suggested retainer: <span id="suggestedPrice" class="font-semibold">From $1,000</span></p>
+    </div>
+
+    <!-- PayPal (quick link) -->
+    <div class="mb-6">
+      <h4 class="font-semibold">Pay with PayPal</h4>
+      <p class="text-sm">Click the button below to pay securely via PayPal (or card via PayPal). Replace the paypal.me link with your PayPal.Me or Checkout integration in production.</p>
+      <!-- Example PayPal.Me link; replace with your PayPal.Me username or Checkout integration -->
+      <a id="paypalPayBtn" href="https://www.paypal.me/atelierelan/1000" target="_blank" rel="noopener" class="btn-primary bg-black text-cream inline-block mt-3">Pay $1,000 via PayPal</a>
+    </div>
+
+    <!-- M-Pesa instructions -->
+    <div class="mb-6">
+      <h4 class="font-semibold">Pay with M-Pesa (Kenya)</h4>
+      <p class="text-sm">We can issue an M-Pesa invoice (STK Push) or you may pay to the business till/paybill. For STK Push you'll need to contact us with your phone number and we'll send an invoice.</p>
+      <ol class="text-sm mt-2 list-decimal ml-6">
+        <li>Choose the package and click "Request M-Pesa Invoice".</li>
+        <li>Enter your phone number and confirm — we'll send an STK push (or provide Paybill/Till details).</li>
+        <li>Once payment is successful, upload payment proof or reply to the confirmation email.</li>
+      </ol>
+      <div class="mt-4">
+        <button id="mpesaBtn" class="btn-secondary">Request M-Pesa Invoice</button>
+      </div>
+    </div>
+
+    <!-- Manual Card Payment (via invoice) -->
+    <div>
+      <h4 class="font-semibold">Pay via Card (Visa/Mastercard)</h4>
+      <p class="text-sm">We accept card payments via PayPal Checkout or via our invoicing provider. If you'd prefer card payment, click below to let us know and we'll send an invoice with a secure payment link.</p>
+      <button id="cardInvoiceBtn" class="btn-secondary mt-3">Request Card Invoice</button>
+    </div>
+
+    <div id="paymentNotice" class="mt-6 text-sm hidden p-3 rounded bg-[#F4F2F0]"></div>
+  </div>
+</section>
+
+  </main>  <footer class="bg-[#1C1C1C] text-cream py-8 mt-12">
+    <div class="container mx-auto max-w-6xl px-6 text-sm flex justify-between items-center">
+      <p>© 2025 Atelier Élan Studio. Nairobi, Kenya.</p>
+      <div>
+        <a class="mr-4">Services</a>
+        <a class="mr-4">Work</a>
+        <a>Contact</a>
+      </div>
+    </div>
+  </footer>  <!-- Scripts: SPA router, portfolio renderer, EmailJS wiring, payment interactions -->  <script>
+    // --- Basic SPA navigation ---
+    const pages = document.querySelectorAll('.page-content');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileMenu = document.getElementById('mobileMenu');
+    document.getElementById('mobileMenuBtn').addEventListener('click',()=>{mobileMenu.classList.toggle('hidden')});
+
+    function showPage(path){
+      // strip hash prefix
+      const clean = (path||'').replace('#/','').replace('#','');
+      const pageId = clean ? `page-${clean}` : 'page-home';
+      pages.forEach(p=>p.classList.remove('active'));
+      const el = document.getElementById(pageId);
+      if(el) el.classList.add('active'); else document.getElementById('page-home').classList.add('active');
+
+      // handle query for payments page
+      if(pageId==='page-payments'){
+        const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
+        const item = params.get('item') || '—';
+        document.getElementById('selectedService').textContent = decodeURIComponent(item);
+        // simple price suggestion by service (you can edit the mapping)
+        const pricing = { 'Branding': '$1,500','Web+%26+UX%2FUI':'$2,500','Social+Content':'$700','Packaging':'$1,200','Digital+Strategy':'$1,000','UX+Audit':'$600' };
+        document.getElementById('suggestedPrice').textContent = pricing[item] || 'From $1,000';
+        document.getElementById('paypalPayBtn').href = `https://www.paypal.me/atelierelan/${(pricing[item]||'1000').replace('$','')}`;
+      }
+    }
+
+    // Attach nav link behavior
+    navLinks.forEach(link=>{link.addEventListener('click',()=>{const path = link.getAttribute('data-path'); window.location.hash = `#/${path}`; showPage(path);})});
+
+    // Also attach mobile links
+    document.querySelectorAll('#mobileMenu a').forEach(a=>{a.addEventListener('click',()=>{const p=a.getAttribute('data-path'); window.location.hash = `#/${p}`; mobileMenu.classList.add('hidden'); showPage(p);})});
+
+    // Hashchange listener
+    window.addEventListener('hashchange',()=>{showPage(window.location.hash)});
+    window.addEventListener('load',()=>{if(!window.location.hash) window.location.hash='#/'; showPage(window.location.hash)});
+
+    // --- Portfolio render (uses the original mock data simplified) ---
+    const portfolioData = [
+      {id:'amaari-organics',title:'Amaari Organics',img:'https://placehold.co/1200x800/1C1C1C/D4AF37?text=Amaari+Organics',blurb:'Luxury haircare brand — visual identity & packaging.'},
+      {id:'flickease',title:'FlickEase',img:'https://placehold.co/1200x800/F4F2F0/1C1C1C?text=FlickEase',blurb:'Movie ticketing app — UX/UI & prototypes.'},
+      {id:'diva-salon',title:'Diva Salon',img:'https://placehold.co/1200x800/D4AF37/1C1C1C?text=Diva+Salon',blurb:'Beauty destination — brand refresh & web.'}
+    ];
+    function renderPortfolio(){
+      const grid = document.getElementById('portfolioGrid'); if(!grid) return;
+      grid.innerHTML = portfolioData.map(p=>`<div class="rounded-12 overflow-hidden shadow-soft"><img src="${p.img}" alt="${p.title}" class="w-full h-44 object-cover"><div class="p-4"><h4 class="font-semibold">${p.title}</h4><p class="text-sm mt-1">${p.blurb}</p></div></div>`).join('');
+    }
+    renderPortfolio();
+
+    // --- EmailJS Contact Form wiring ---
+    (function(){
+      // IMPORTANT: Replace the placeholders below with your EmailJS credentials
+      // 1) SERVICE_ID: e.g., 'service_xxx'
+      // 2) TEMPLATE_ID: e.g., 'template_contact'
+      // 3) USER_ID: your EmailJS public key (user_xxx)
+      const SERVICE_ID = 'SERVICE_ID_REPLACE_ME';
+      const TEMPLATE_ID = 'TEMPLATE_ID_REPLACE_ME';
+      const USER_ID = 'USER_ID_REPLACE_ME';
+
+      // initialize EmailJS (call once)
+      if(window.emailjs){
+        try{ emailjs.init(USER_ID); }catch(e){ console.warn('EmailJS init error — replace USER_ID placeholder with your EmailJS public key.'); }
+      }
+
+      const contactForm = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+      contactForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        formStatus.classList.remove('hidden');
+        formStatus.textContent = 'Sending message...';
+        formStatus.style.background='';
+
+        // basic honeypot check
+        if(document.getElementById('hp_field') && document.getElementById('hp_field').value !== ''){
+          formStatus.textContent = 'Bot detected. Submission blocked.'; formStatus.style.background='#ffecec'; return;
+        }
+
+        // If user didn't replace service/template IDs, show instructions
+        if(SERVICE_ID.startsWith('SERVICE_ID') || TEMPLATE_ID.startsWith('TEMPLATE_ID') || USER_ID.startsWith('USER_ID')){
+          formStatus.textContent = 'Demo mode — email not sent. Please replace EmailJS SERVICE_ID, TEMPLATE_ID and USER_ID in the HTML to enable live emailing.';
+          formStatus.style.background='#fff4e6';
+          // Reset form for demo
+          setTimeout(()=>{contactForm.reset();},1200);
+          return;
+        }
+
+        // Send via EmailJS
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm)
+          .then(()=>{
+            formStatus.textContent = 'Thank you — your message was sent. We will reply to ' + (contactForm.reply_to ? contactForm.reply_to.value : '') + '.';
+            formStatus.style.background='#e6ffef';
+            contactForm.reset();
+          },(err)=>{
+            console.error('EmailJS error',err);
+            formStatus.textContent = 'Sorry — there was an error sending your message. Check console for details.';
+            formStatus.style.background='#ffecec';
+          });
+      });
+    })();
+
+    // --- Payment interactions ---
+    document.getElementById('mpesaBtn').addEventListener('click',()=>{
+      const num = prompt('Enter your phone number (format: 07XXXXXXXX):');
+      if(!num) return alert('Phone number required to request an M-Pesa invoice.');
+      // In production: send this phone number to your backend to trigger an STK Push via M-Pesa API.
+      document.getElementById('paymentNotice').textContent = 'Thanks — an M-Pesa invoice request has been noted. We will contact you at ' + num + ' to complete payment.';
+      document.getElementById('paymentNotice').classList.remove('hidden');
+    });
+
+    document.getElementById('cardInvoiceBtn').addEventListener('click',()=>{
+      const email = prompt('Enter your email for the invoice:');
+      if(!email) return alert('Email required to send invoice.');
+      document.getElementById('paymentNotice').textContent = 'Invoice request received. We will send a secure card payment link to ' + email + ' shortly.';
+      document.getElementById('paymentNotice').classList.remove('hidden');
+    });
+
+  </script></body>
+</html>
